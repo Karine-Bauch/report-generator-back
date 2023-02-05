@@ -19,7 +19,7 @@ export default async function (req, res) {
   try {
     const completion = await openai.createCompletion({
       model: 'text-davinci-003',
-      prompt: generatePrompt(template, surgery),
+      prompt: generate(template, surgery),
       temperature: 0.6,
     });
     res.status(200).json({ result: completion.data.choices[0].text });
@@ -39,7 +39,7 @@ export default async function (req, res) {
   }
 }
 
-function generatePrompt(template, surgeryDatas) {
+function generate(template, surgeryDatas) {
   return `Rédige un compte-rendu opératoire en utilisant le modèle suivant:
   ${template}
   en le modifant avec les informations suivantes:
