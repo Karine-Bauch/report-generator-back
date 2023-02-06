@@ -1,14 +1,7 @@
-import {
-  ForbiddenException,
-  Injectable,
-  NotFoundException,
-} from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { ReportTemplate } from './entities/report-template.entity';
 import { reportTemplatesDatas } from 'src/data/report-templates';
-import { HttpService } from '@nestjs/axios';
-import { catchError, lastValueFrom, map } from 'rxjs';
 import { Configuration, OpenAIApi, CreateCompletionRequest } from 'openai';
-import generatePrompt from '../utils/generate';
 
 @Injectable()
 export class ReportTemplatesService {
@@ -63,48 +56,26 @@ export class ReportTemplatesService {
 
   async generateReport(id: string, surgeryDatas: any) {
     const template = await this.findOne(id);
-    const prompt = generatePrompt(template.content, surgeryDatas.infos);
-    console.log('prompt: ', prompt, 'id: ', id);
+    const prompt = `
+      ${template.content}.
+      Réécris ce compte-rendu opératoire pour ${surgeryDatas.infos} en respectant exactement le contenu et la mise en page
+    `;
+    // console.log('prompt: ', prompt, 'id: ', id);
 
     try {
       const params: CreateCompletionRequest = {
         prompt: prompt,
         model: 'text-davinci-003',
-        temperature: 0.9,
-        max_tokens: 200,
+        temperature: 0.6,
+        max_tokens: 100,
       };
 
       const response = await this.openAiApi.createCompletion(params);
-      const newReport = await response.data.choices[0].text;
+      const newReport = await response.data;
 
       return newReport;
     } catch (error) {
       console.log(error);
     }
-
-    // const template = await this.findOne(id);
-    // console.log(surgeryDatas);
-
-    // const request = this.httpService
-    //   .post('localhost:3000/src/utils/generatePrompt.js', {
-    //     method: 'POST',
-    //     body: JSON.stringify({
-    //       template: template.content,
-    //       surgeryDatas: surgeryDatas.infos,
-    //     }),
-    //   })
-    //   .pipe(map((response) => response.data))
-    //   .pipe(
-    //     catchError(() => {
-    //       throw new ForbiddenException('API not available');
-    //     }),
-    //   );
-
-    // const reportGenerated = await lastValueFrom(request);
-    // return reportGenerated;
-
-    // return `This action generates a report with
-    // template: ${template.content}
-    // surgeryDatas: ${surgeryDatas.infos}`;
   }
 }
