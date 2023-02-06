@@ -172,42 +172,6 @@ export const reportTemplatesDatas: ReportTemplate[] = [
   },
   {
     id: 5,
-    name: 'panaris',
-    content: `COMPTE RENDU OPERATOIRE
-    Le 
-    
-    M. 
-    Chirurgien: Dr. 
-    Anesthésiste: Dr. 
-    
-    Diagnostic : Panaris 4eme doigt droit
-    Intervention : Excision d’un panaris profond de la pulpe du doigt, excision partielle de tablette unguéale
-    Codage: MJFA003, QZFA020
-    
-    Rappel Clinique: 24ans, droitier, non fumeur, consultant, panaris collecté évoluant depuis 30/12, pulsatile, collectée, mis sous AUGMENTIN il y a 2 jours
-    
-    Intervention
-    Anesthésie locorégionale, décubitus dorsal, table à bras
-    Garrot à la racine du bras; 250 mmHg; 15 min
-    Excision des tissus pathologiques
-    Issue de pus franc
-    Prélèvement bactériologique
-    Excision partielle de tablette unguéale
-    Lavage au sérum physiologique
-    Cicatrisation dirigée
-    Pansement humide
-    
-    Soins postopératoires :
-    
-    Mobilisation immédiate autorisée et recommandée
-    Antalgiques
-    Pansement dans 1 jours puis tous les jours jusqu'à cicatrisation complète
-    Pas d’arrêt de travail 
-    Consultation de contrôle à J+7.`,
-    tags: ['main', 'panaris', 'doigt'],
-  },
-  {
-    id: 6,
     name: 'phlegmon-panaris',
     content: `COMPTE RENDU OPERATOIRE
     Le 
@@ -252,7 +216,7 @@ export const reportTemplatesDatas: ReportTemplate[] = [
     tags: ['main', 'plaie'],
   },
   {
-    id: 7,
+    id: 6,
     name: 'poignet plaque',
     content: `COMPTE RENDU OPERATOIRE
     Le 
@@ -291,5 +255,41 @@ export const reportTemplatesDatas: ReportTemplate[] = [
     Ablation des extrémités du surjet à J+12
     Cs de contrôle à J+21 + radiographie.`,
     tags: ['poignet', 'plaque'],
+  },
+  {
+    id: 7,
+    name: 'panaris',
+    content: `COMPTE RENDU OPERATOIRE
+    Le 
+    
+    M. 
+    Chirurgien: Dr. 
+    Anesthésiste: Dr. 
+    
+    Diagnostic : Panaris 4eme doigt droit
+    Intervention : Excision d’un panaris profond de la pulpe du doigt, excision partielle de tablette unguéale
+    Codage: MJFA003, QZFA020
+    
+    Rappel Clinique: 24ans, droitier, non fumeur, consultant, panaris collecté évoluant depuis 30/12, pulsatile, collectée, mis sous AUGMENTIN il y a 2 jours
+    
+    Intervention
+    Anesthésie locorégionale, décubitus dorsal, table à bras
+    Garrot à la racine du bras; 250 mmHg; 15 min
+    Excision des tissus pathologiques
+    Issue de pus franc
+    Prélèvement bactériologique
+    Excision partielle de tablette unguéale
+    Lavage au sérum physiologique
+    Cicatrisation dirigée
+    Pansement humide
+    
+    Soins postopératoires :
+    
+    Mobilisation immédiate autorisée et recommandée
+    Antalgiques
+    Pansement dans 1 jours puis tous les jours jusqu'à cicatrisation complète
+    Pas d’arrêt de travail 
+    Consultation de contrôle à J+7.`,
+    tags: ['main', 'panaris', 'doigt'],
   },
 ];
