@@ -87,7 +87,7 @@ export const reportTemplatesDatas: ReportTemplate[] = [
   },
   {
     id: 3,
-    name: 'extyenseur + artic',
+    name: 'extenseur + artic',
     content: `COMPTE RENDU OPERATOIRE
     Le 
     
