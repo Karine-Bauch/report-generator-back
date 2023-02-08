@@ -67,7 +67,7 @@ export class ReportTemplatesService {
         prompt: prompt,
         model: 'text-davinci-003',
         temperature: 0.6,
-        max_tokens: 300,
+        max_tokens: 1000,
       };
 
       const response = await this.openAiApi.createCompletion(params);
