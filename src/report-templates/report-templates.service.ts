@@ -57,8 +57,8 @@ export class ReportTemplatesService {
   async generateReport(id: string, surgeryDatas: any) {
     const template = await this.findOne(id);
     const prompt = `
-      ${template.content}.
-      Réécris ce compte-rendu opératoire pour ${surgeryDatas.infos} en respectant exactement le contenu et la mise en page
+      Tu es un générateur de compte rendu opératoire. Ta tâche est de créer un nouveau compte rendu opératoire pour rapporter ce que le chirurgien a fait pendant l’opération. Il faut que tu te bases uniquement sur ce modèle : ${template}.
+      Réécris ce compte-rendu opératoire avec ces nouvelles données : ${surgeryDatas}
     `;
     // console.log('prompt: ', prompt, 'id: ', id);
 
